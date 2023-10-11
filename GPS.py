@@ -206,6 +206,16 @@ class WorldBlockGPS(GPSSolver):
         # Define valid actions for the World Block problem.
         actions = []
 
+        # get top block from each column
+        block = ""
+        for i in range(len(state)):
+            for j in range(len(state)):
+                if state[i][j] is not None:
+                    block = state[i][j]
+
+        # Rules:
+        # Only move top block in column
+        # Move block to bottom most row in column
 
 
 
@@ -229,6 +239,7 @@ class WorldBlockGPS(GPSSolver):
         Hint: Observe the flow in other example given.
         Observe the possible moves and generate new state when given input is applied against previous state.
         """
+        # we may need a function that generates a state from a given action
 
         # Apply the action to the state to generate the resulting state.
         source_stack, target_stack = action

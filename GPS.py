@@ -239,7 +239,6 @@ class WorldBlockGPS(GPSSolver):
         Hint: Observe the flow in other example given.
         Observe the possible moves and generate new state when given input is applied against previous state.
         """
-        # we may need a function that generates a state from a given action
 
         # Apply the action to the state to generate the resulting state.
         source_stack, target_stack = action
@@ -247,6 +246,11 @@ class WorldBlockGPS(GPSSolver):
 
         # YOUR CODE GOES HERE (C)
 
+        # Get top block
+        block: chr = state[source_stack].remove()
+
+        # Move block to end of target_stack
+        new_state[target_stack].append(block)
         # YOUR CODE ENDS HERE
 
         return new_state
